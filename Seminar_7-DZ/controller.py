@@ -11,7 +11,7 @@ def check_user_input(user_input_str):
 def user_select(user_select_item):
     if user_select_item == "1":
         print("Show_list")
-        core.connect_sqlite_base()
+        core.get_contacts_list()
     elif user_select_item == "2":
         print("Add record")
     elif user_select_item == "3":
