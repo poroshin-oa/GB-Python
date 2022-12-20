@@ -1,4 +1,5 @@
 import model as core
+import controller as cont
 
 def show_main_menu():
     print("\nВыберите действие:\n")
@@ -9,7 +10,7 @@ def show_main_menu():
 def get_main_action():
     main_action = input("> ")
 
-    while not core.check_user_input(main_action):
+    while not cont.check_user_input(main_action):
         main_action = input("Ошибка! Повторите ввод > ")
     else:
-        return main_action
+        cont.user_select(main_action)
