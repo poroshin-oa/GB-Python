@@ -1,4 +1,3 @@
-import model as core
 import controller as cont
 
 def show_main_menu():
@@ -14,3 +13,6 @@ def get_main_action():
         main_action = input("Ошибка! Повторите ввод > ")
     else:
         cont.user_select(main_action)
+
+def show_contacts_list(contacts_list):
+    pass
