@@ -1,5 +1,6 @@
 import sqlite3
 import view
+import csv
 
 BASE_FILE_NAME = "contacts.db"
 
@@ -55,3 +56,19 @@ def del_contact():
 
     except:
         print("Ошибка удаления!")
+
+def import_csv(csv_file_name):
+    pass
+
+def export_csv():
+    try:
+        export_list = get_contacts_list()
+        
+        with open("export.csv", "w", newline="") as csv_export_file:
+            writer = csv.writer(csv_export_file)
+            writer.writerows(export_list)
+
+        print("Экспорт выполнен успешно!")
+    except:
+        print("Ошибка экспорта!")
+    

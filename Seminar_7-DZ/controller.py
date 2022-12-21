@@ -18,9 +18,9 @@ def user_select(user_select_item):
     elif user_select_item == "3":
         core.del_contact()
     elif user_select_item == "4":
-        print("Import records")
+        core.import_csv("import.csv")
     elif user_select_item == "5":
-        print("Export records")
+        core.export_csv()
 
 
 
