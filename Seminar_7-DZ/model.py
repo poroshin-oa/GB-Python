@@ -64,7 +64,7 @@ def export_csv():
         export_list = get_contacts_list()
         export_list_length = len(export_list)
 
-        with open("export.csv", "a") as csv_export_file:
+        with open("export.csv", "w") as csv_export_file:
             csv_writer = csv.writer(csv_export_file)
 
             for i in range(export_list_length):
