@@ -7,7 +7,6 @@ BASE_FILE_NAME = "contacts.db"
 def connect_sqlite_base():
     try:
         sqlite_connect = sqlite3.connect(BASE_FILE_NAME)
-        #sqlite_cursor = sqlite_connect.cursor()
 
         return sqlite_connect
     except:
@@ -63,10 +62,14 @@ def import_csv(csv_file_name):
 def export_csv():
     try:
         export_list = get_contacts_list()
-        
-        with open("export.csv", "w", newline="") as csv_export_file:
-            writer = csv.writer(csv_export_file)
-            writer.writerows(export_list)
+        export_list_length = len(export_list)
+
+        with open("export.csv", "a") as csv_export_file:
+            csv_writer = csv.writer(csv_export_file)
+
+            for i in range(export_list_length):
+                export_line = f"{export_list[i][1]}; {export_list[i][2]}"
+                csv_writer.writerow([export_line])
 
         print("Экспорт выполнен успешно!")
     except:
