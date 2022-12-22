@@ -1,20 +1,17 @@
 import controller as cont
+import tkinter as tk
 
-def show_main_menu():
-    print("\nВыберите действие:\n")
-    print("1: Показать список")
-    print("2: Добавить запись")
-    print("3: Удалить запись")
-    print("4: Импорт записей из csv")
-    print("5: Экспорт записей в csv\n")
+def show_main_form():
+    main_window = tk.Tk()  
+    main_window.title("Телефонный справочник")  
+    main_window.resizable(False, False)
 
-def get_main_action():
-    main_action = input("> ")
+    # Для отображения окна по центру
+    set_width = (main_window.winfo_screenwidth() // 2) - 200
+    set_height = (main_window.winfo_screenheight() // 2) - 300
+    main_window.geometry('400x600+{}+{}'.format(set_width, set_height))
 
-    while not cont.check_user_input(main_action):
-        main_action = input("Ошибка! Повторите ввод > ")
-    else:
-        cont.user_select(main_action)
+    main_window.mainloop() 
 
 def show_contacts_list(contacts_list):
     contacts_list_length = len(contacts_list)
