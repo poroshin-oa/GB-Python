@@ -3,6 +3,8 @@ import view
 import csv
 
 BASE_FILE_NAME = "contacts.db"
+EXPORT_CSV_FILE_NAME = "export.csv"
+IMPORT_CSV_FILE_NAME = "import.csv"
 
 def connect_sqlite_base():
     try:
@@ -21,11 +23,7 @@ def get_contacts_list():
 
     return get_list_execute.fetchall()
 
-def add_new_contact():
-    new_contact_data = view.input_new_contact()
-    new_name = new_contact_data[0]
-    new_phone = new_contact_data[1]
-    
+def add_new_contact(new_name, new_phone):
     try:
         add_contact_connect = connect_sqlite_base()
         add_contact_cursor = add_contact_connect.cursor()
@@ -56,15 +54,29 @@ def del_contact():
     except:
         print("Ошибка удаления!")
 
-def import_csv(csv_file_name):
-    pass
+def import_csv():
+    try:
+        with open(IMPORT_CSV_FILE_NAME) as csv_import_file:
+            csv_reader = csv.reader(csv_import_file)
+
+            for i in csv_reader:
+                split_list = i[0].split(";")
+                split_list_name = split_list[0]
+                split_list_phone = split_list[1]
+
+                add_new_contact(split_list_name, split_list_phone)
+        
+        print("Успешный импорт!")
+
+    except:
+        print("Ошибка импорта!")
 
 def export_csv():
     try:
         export_list = get_contacts_list()
         export_list_length = len(export_list)
 
-        with open("export.csv", "w") as csv_export_file:
+        with open(EXPORT_CSV_FILE_NAME, "w") as csv_export_file:
             csv_writer = csv.writer(csv_export_file)
 
             for i in range(export_list_length):
