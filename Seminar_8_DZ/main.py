@@ -1,4 +1,4 @@
 import view as interface
 
-interface.show_main_form()
-#interface.get_main_action()
+if __name__ == "__main__":
+    interface.show_main_form()
