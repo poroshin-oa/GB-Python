@@ -21,7 +21,13 @@ def get_contacts_list():
     get_list_query = "SELECT id, name, phone FROM Contacts"
     get_list_execute = get_list_cursor.execute(get_list_query)
 
-    return get_list_execute.fetchall()
+    contacts_list = get_list_execute.fetchall()
+    contacts_list_result = []
+
+    for i in range(len(contacts_list)):
+        contacts_list_result.append(f"{contacts_list[i][1]}, {contacts_list[i][2]}")
+
+    return contacts_list_result
 
 def add_new_contact(new_name, new_phone):
     try:
