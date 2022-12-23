@@ -35,30 +35,38 @@ def show_contacts_list():
     for i in contacts_list:
         lbox.insert(0, i)
 
+def clear_dialog_frame():
+    for widget in dialog_frame.winfo_children():
+        widget.destroy()
+
 def show_dialog_frame():
     global dialog_frame
 
-    dialog_frame = tk.Frame(main_window, width=100, height=155, bg="blue")
+    dialog_frame = tk.Frame(main_window, width=100, height=155)
     dialog_frame.pack(fill="x", padx=6, pady=6)
 
 def show_add_dialog():
-    pass
+    clear_dialog_frame()
+    tk.Label(dialog_frame, text = "Insert Name").pack(fill="x", side="left")
 
-def show_log_dialog(log_file_name):
-    pass
+def show_log_dialog():
+    clear_dialog_frame()
+    tk.Label(dialog_frame, text = "LOG").pack(fill="x", side="left")
 
 def show_import_dialog():
-    pass
+    clear_dialog_frame()
+    tk.Label(dialog_frame, text = "Insert File Name for import").pack(fill="x", side="left")
 
 def show_export_dialog():
-    pass
+    clear_dialog_frame()
+    tk.Label(dialog_frame, text = "Insert File Name for export").pack(fill="x", side="left")
 
 def show_button_menu():
-    tk.Button(text="Добавить", width=100).pack(fill="x", padx=2)
-    tk.Button(text="Удалить", width=100).pack(fill="x", padx=2)
-    tk.Button(text="Экспорт списка", width=100).pack(fill="x", padx=2)
-    tk.Button(text="Импорт списка", width=100).pack(fill="x", padx=2)
-    tk.Button(text="Просмотреть лог", width=100).pack(fill="x", padx=2)
+    add_button = tk.Button(text="Добавить", width=100, command = show_add_dialog).pack(fill="x", padx=2)
+    del_button = tk.Button(text="Удалить", width=100).pack(fill="x", padx=2)
+    export_button = tk.Button(text="Экспорт списка", width=100, command = show_export_dialog).pack(fill="x", padx=2)
+    import_button = tk.Button(text="Импорт списка", width=100, command = show_import_dialog).pack(fill="x", padx=2)
+    log_button = tk.Button(text="Просмотреть лог", width=100, command = show_log_dialog).pack(fill="x", padx=2)
 
 def input_new_contact():
     new_contact_list = []
