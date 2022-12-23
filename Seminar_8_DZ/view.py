@@ -1,3 +1,6 @@
+# TODO: Scroll Main List
+# TODO: Disable active button
+
 import controller as cont
 import tkinter as tk
 import model as core
@@ -27,7 +30,6 @@ def show_contacts_list():
     lbox = tk.Listbox(width = 40, height = 150)
     lbox.pack(side="left", padx=5, pady=5)
 
-    # TODO: Scroll
     contacts_list = core.get_contacts_list()
     contacts_list.reverse()
 
@@ -47,11 +49,19 @@ def show_dialog_frame():
 
 def show_add_dialog():
     clear_dialog_frame()
-    tk.Label(dialog_frame, text = "Insert Name").pack(fill="x", side="left")
+
+    tk.Label(dialog_frame, text = "Введите имя:").pack(fill="x")
+    add_name = tk.Entry(dialog_frame).pack(fill="x")
+    tk.Label(dialog_frame, text = "Введите номер:").pack(fill="x")
+    add_phone = tk.Entry(dialog_frame).pack(fill="x")
+    add_submit_button = tk.Button(dialog_frame, text = "Добавить запись").pack(fill="x")
 
 def show_log_dialog():
     clear_dialog_frame()
-    tk.Label(dialog_frame, text = "LOG").pack(fill="x", side="left")
+
+    tk.Label(dialog_frame, text = "LOG-файл:").pack(fill="x")
+    log_listbox = tk.Listbox(width = 40, height = 150)
+    log_listbox.pack(padx=5, pady=5)
 
 def show_import_dialog():
     clear_dialog_frame()
