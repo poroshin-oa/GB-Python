@@ -34,6 +34,7 @@ def show_button_menu():
     tk.Button(text="Удалить", width=100).pack(fill="x", padx=2)
     tk.Button(text="Экспорт списка", width=100).pack(fill="x", padx=2)
     tk.Button(text="Импорт списка", width=100).pack(fill="x", padx=2)
+    tk.Button(text="Просмотреть лог", width=100).pack(fill="x", padx=2)
 
 def input_new_contact():
     new_contact_list = []
