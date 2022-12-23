@@ -2,7 +2,12 @@ import controller as cont
 import tkinter as tk
 import model as core
 
+# Глобалим переменные только из-за отсутствия ООП
+# По уму, это все нужно паковать в класс
+
 def show_main_form():
+    global main_window
+
     main_window = tk.Tk()  
     main_window.title("Телефонный справочник")  
     main_window.resizable(False, False)
@@ -14,6 +19,7 @@ def show_main_form():
     
     show_contacts_list()
     show_button_menu()
+    show_dialog_frame()
 
     main_window.mainloop()
 
@@ -28,6 +34,24 @@ def show_contacts_list():
     # Выводим в список на форму
     for i in contacts_list:
         lbox.insert(0, i)
+
+def show_dialog_frame():
+    global dialog_frame
+
+    dialog_frame = tk.Frame(main_window, width=100, height=155, bg="blue")
+    dialog_frame.pack(fill="x", padx=6, pady=6)
+
+def show_add_dialog():
+    pass
+
+def show_log_dialog(log_file_name):
+    pass
+
+def show_import_dialog():
+    pass
+
+def show_export_dialog():
+    pass
 
 def show_button_menu():
     tk.Button(text="Добавить", width=100).pack(fill="x", padx=2)
