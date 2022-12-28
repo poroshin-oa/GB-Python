@@ -1,4 +1,6 @@
-import sql as base
+import model as core
+import control as ctrl
+
 import telebot as tg_api
 
 TOKEN = "5882762303:AAEzWNN7e5a9OYbeuIi8MnLtL8_vNFVF5Mk"
@@ -16,7 +18,4 @@ if __name__ == "__main__":
         bot_obj.send_message(message.chat.id, 'Вы написали: ' + message.text)
 
 
-
     bot_obj.polling(none_stop=True, interval=0)
-
-
