@@ -7,8 +7,18 @@ def format_phone_number(non_format_phone_number):
     return format_phone
 
 def create_contacts_table(non_format_contact_list):
-    phone = format_phone_number("89005461705")
-    print(phone)
+    contacts_table = PrettyTable()
+    contacts_table.field_names = ["ID", "ИМЯ", "НОМЕР ТЕЛЕФОНА"]
+
+    for i in range(len(non_format_contact_list)):
+        id = non_format_contact_list[i][0]
+        name = non_format_contact_list[i][1]
+        phone = format_phone_number(non_format_contact_list[i][2])
+
+        contacts_table.add_row([id, name, phone])
+        
+    return contacts_table
+        
 
 def show_contacts_list(non_format_contact_list):
     contacts_table = create_contacts_table(non_format_contact_list)
