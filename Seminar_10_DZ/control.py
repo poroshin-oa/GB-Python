@@ -10,7 +10,7 @@ def check_user_input(user_message):
 
 def main_menu(menu_item):
     if menu_item == "/show":
-        core.show_contacts_list()
+        print(core.get_contacts_list())
     elif menu_item == "/add":
         core.add_contact("name", "phone")
     elif menu_item == "/rem":
