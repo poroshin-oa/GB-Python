@@ -24,9 +24,6 @@ def get_contacts_list():
     except:
         return False
 
-def show_contacts_list():
-    print("Show phones")
-
 def del_contact(del_contact_id):
     print("Del_cont")
 
