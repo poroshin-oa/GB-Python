@@ -22,4 +22,6 @@ def create_contacts_table(non_format_contact_list):
 
 def show_contacts_list(non_format_contact_list):
     contacts_table = create_contacts_table(non_format_contact_list)
+
+    return contacts_table
     

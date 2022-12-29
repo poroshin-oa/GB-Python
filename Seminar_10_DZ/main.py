@@ -13,6 +13,11 @@ if __name__ == "__main__":
         bot_obj.send_message(message.chat.id, 
         "Привет, выбери команду:\n\n /show - показать весь список\n /add - добавить запись\n /rem - удалить запись \n /exp_csv - экспорт списка в csv\n /exp_xml - экспорт списка в xml")
     
+    @bot_obj.message_handler(commands=["show"])
+    def show_all(message):
+        bot_obj.send_message(message.chat.id,
+        ctrl.main_menu("show"))
+    
     @bot_obj.message_handler(content_types=["text"])
     def get_user_input(message):
         ctrl.check_user_input(message.text)

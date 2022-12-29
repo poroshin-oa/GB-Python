@@ -10,14 +10,15 @@ def check_user_input(user_message):
         main_menu(user_message)
 
 def main_menu(menu_item):
-    if menu_item == "/show":
+    if menu_item == "show":
         contact_list = core.get_contacts_list()
-        bot_interface.show_contacts_list(contact_list)
-    elif menu_item == "/add":
+        table = bot_interface.show_contacts_list(contact_list)
+        return table
+    elif menu_item == "add":
         core.add_contact("name", "phone")
-    elif menu_item == "/rem":
+    elif menu_item == "rem":
         core.del_contact("1")
-    elif menu_item == "/exp_csv":
+    elif menu_item == "exp_csv":
         core.export_list_csv()
-    elif menu_item == "/exp_xml":
+    elif menu_item == "exp_xml":
         core.export_list_xml()
