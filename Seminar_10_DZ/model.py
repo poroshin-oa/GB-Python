@@ -24,17 +24,17 @@ def get_contacts_list():
     except:
         return False
 
-def show_contacts_list(non_format_list):
-    pass
+def show_contacts_list():
+    print("Show phones")
 
 def del_contact(del_contact_id):
-    pass
+    print("Del_cont")
 
 def add_contact(new_contact_name, new_contact_phone):
-    pass
+    print("Add_cont")
 
 def export_list_csv():
-    pass
+    print("CSV")
 
 def export_list_xml():
-    pass
+    print("XML")

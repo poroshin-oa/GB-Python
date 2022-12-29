@@ -15,7 +15,7 @@ if __name__ == "__main__":
     
     @bot_obj.message_handler(content_types=["text"])
     def get_user_input(message):
-        bot_obj.send_message(message.chat.id, 'Вы написали: ' + message.text)
+        ctrl.check_user_input(message.text)
 
 
     bot_obj.polling(none_stop=True, interval=0)

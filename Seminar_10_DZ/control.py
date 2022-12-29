@@ -1,5 +1,21 @@
+import model as core
+
+VALID_COMMAND_LIST = ["/show", "/add", "/rem", "/exp_csv", "/exp_xml"]
+
 def check_user_input(user_message):
-    pass
+    if user_message not in VALID_COMMAND_LIST:
+        return False
+    else:
+        main_menu(user_message)
 
 def main_menu(menu_item):
-    pass
+    if menu_item == "/show":
+        core.show_contacts_list()
+    elif menu_item == "/add":
+        core.add_contact("name", "phone")
+    elif menu_item == "/rem":
+        core.del_contact("1")
+    elif menu_item == "/exp_csv":
+        core.export_list_csv()
+    elif menu_item == "/exp_xml":
+        core.export_list_xml()
